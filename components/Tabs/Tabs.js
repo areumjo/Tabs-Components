@@ -2,32 +2,42 @@
 class TabLink {
   constructor(element) {
     // Assign this.element to the passed in DOM element
-    // this.element;
+    this.element = element;
+    console.log(this.element);
     
     // Get the custom data attribute on the Link
-    // this.data;
+    this.data = element.dataset.tab;
+    console.log(this.data); // print 1,2,3,4
     
     // Using the custom data attribute get the associated Item element
-    // this.itemElement;
-    
+    this.itemElement = document.querySelector(`.tabs-item[data-tab="${this.data}"]`);
+    console.log(this.itemElement);
+
     // Using the Item element, create a new instance of the TabItem class
-    // this.tabItem;
+    this.tabItem = new TabItem(this.itemElement);
     
     // Add a click event listener on this instance, calling the select method on click
-
+    this.element.addEventListener('click', () => this.select());
   };
 
   select() {
+    console.log('check this works?')
     // Get all of the elements with the tabs-link class
-    // const links;
+    const links = document.querySelectorAll('.tabs-link');
+    console.log(links);
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
-    // Array.from(links).forEach();
+    Array.from(links).forEach( function(removeTab) {
+      removeTab.className = removeTab.className.replace('tabs-link-selected', '');
+    });
+    console.log(links); // removed div.tabs-link-selected !!!
 
     // Add a class named "tabs-link-selected" to this link
-    // this.element;
-    
+    this.element.className += ' tabs-link-selected';
+    console.log(this.element); // clicking tap works now
+
     // Call the select method on the item associated with this link
+    
 
   }
 }
@@ -59,4 +69,5 @@ class TabItem {
 
 */
 
-links = document.querySelectorAll();
+links = document.querySelectorAll('.tabs-link');
+links.forEach( link => new TabLink(link));
