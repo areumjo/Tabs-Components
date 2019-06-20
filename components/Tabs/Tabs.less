@@ -1,3 +1,21 @@
+.carousel{
+  .carousel-img {
+    width: 100%;
+    display: none;
+  }
+  .img-selected {
+    display: block;
+  }
+  .carousel-btn {
+    padding: 10px;
+    display: inline-block;
+    margin-top: 15px;
+    background-color: @lambda-light-red;
+    color: @white;
+  }
+}
+
+
 .tabs {
   width: 100%;
   .tabs-items {
@@ -19,6 +37,15 @@
   }
   .tabs-item-selected {
     display: block;
+  }
+  //for fade in-out effect
+  #slideSource {
+    opacity: 1;
+    transition: opacity 1s; 
+  }
+
+  #slideSource.fade {
+    opacity: 0;
   }
 
   .tabs-links {
