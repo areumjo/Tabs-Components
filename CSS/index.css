@@ -66,6 +66,13 @@
 .tabs .tabs-item-selected {
   display: block;
 }
+.tabs #slideSource {
+  opacity: 1;
+  transition: opacity 1s;
+}
+.tabs #slideSource.fade {
+  opacity: 0;
+}
 .tabs .tabs-links {
   display: flex;
   background-color: #931d25;

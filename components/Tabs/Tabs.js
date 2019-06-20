@@ -79,3 +79,10 @@ class TabItem {
 
 links = document.querySelectorAll('.tabs-link');
 links.forEach( link => new TabLink(link));
+
+var slideSource = document.getElementById('slideSource');
+
+document.getElementById('handle').onclick = function () {
+  slideSource.classList.toggle('fade');
+  //console.log('work?') //works only on hard-coded data-tab="1"
+}
