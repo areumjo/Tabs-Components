@@ -24,20 +24,20 @@ class TabLink {
     console.log('check this works?')
     // Get all of the elements with the tabs-link class
     const links = document.querySelectorAll('.tabs-link');
-    console.log(links);
+    //console.log(links);
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
     Array.from(links).forEach( function(removeTab) {
       removeTab.className = removeTab.className.replace('tabs-link-selected', '');
     });
-    console.log(links); // removed div.tabs-link-selected !!!
+    //console.log(links); // removed div.tabs-link-selected !!!
 
     // Add a class named "tabs-link-selected" to this link
     this.element.className += ' tabs-link-selected';
-    console.log(this.element); // clicking tap works now
+    //console.log(this.element); // clicking tap works now
 
     // Call the select method on the item associated with this link
-    
+    this.tabItem.select();
 
   }
 }
@@ -45,17 +45,25 @@ class TabLink {
 class TabItem {
   constructor(element) {
     // Assign this.element to the passed in element
-    // this.element;
+    this.element = element;
+    //console.log(this.element);
   }
 
   select() {
     // Select all ".tabs-item" elements from the DOM
-    // const items;
+    const items = document.querySelectorAll('.tabs-item');
+    //console.log(items);
 
     // Remove the class "tabs-item-selected" from each element
-    
+    Array.from(items).forEach(function(rmtab) {
+      rmtab.className = rmtab.className.replace('tabs-item-selected', '');
+    })
+    //console.log(items);
+
+
     // Add a class named "tabs-item-selected" to this element
-    //this.element;
+    this.element.className += ' tabs-item-selected';
+    console.log(this.element);
   }
 }
 
