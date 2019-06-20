@@ -44,6 +44,20 @@
 .dropdown .dropdown-hidden {
   display: none;
 }
+.carousel .carousel-img {
+  width: 100%;
+  display: none;
+}
+.carousel .img-selected {
+  display: block;
+}
+.carousel .carousel-btn {
+  padding: 10px;
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #be2530;
+  color: #ffffff;
+}
 .tabs {
   width: 100%;
 }

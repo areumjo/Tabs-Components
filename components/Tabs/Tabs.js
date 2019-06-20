@@ -3,11 +3,11 @@ class TabLink {
   constructor(element) {
     // Assign this.element to the passed in DOM element
     this.element = element;
-    console.log(this.element);
+    //console.log(this.element);
     
     // Get the custom data attribute on the Link
     this.data = element.dataset.tab;
-    console.log(this.data); // print 1,2,3,4
+    //console.log(this.data); // print 1,2,3,4
     
     // Using the custom data attribute get the associated Item element
     this.itemElement = document.querySelector(`.tabs-item[data-tab="${this.data}"]`);
@@ -63,7 +63,7 @@ class TabItem {
 
     // Add a class named "tabs-item-selected" to this element
     this.element.className += ' tabs-item-selected';
-    console.log(this.element);
+    //console.log(this.element);
   }
 }
 
@@ -86,3 +86,39 @@ document.getElementById('handle').onclick = function () {
   slideSource.classList.toggle('fade');
   //console.log('work?') //works only on hard-coded data-tab="1"
 }
+
+class Carousel{
+  constructor(images, imageBtn) {
+    this.images = Array.from(images);
+    var currentImage = this.images.find((img) => img.className.includes("selected"));
+    var imageIndices = this.images.map((img) => img.dataset.tab);
+    var currentImageIndex = currentImage.dataset.tab;
+    this.currentIndex = imageIndices.indexOf(currentImageIndex);
+    //console.log(this.currentIndex);
+
+    this.btn = imageBtn;
+    imageBtn.addEventListener('click', () => this.slide());
+  }
+
+  slide() {
+    console.log('slide connected?')
+    
+    // remove selection
+    this.images[this.currentIndex].className = this.images[this.currentIndex].className.replace('img-selected', '');
+    //console.log(this.images[this.currentIndex].className);
+
+    // change current index to point to the next
+    this.currentIndex += 1;
+    if (this.currentIndex >= this.images.length) {
+      this.currentIndex = 0;
+    }
+
+    this.images[this.currentIndex].className += ' img-selected';
+
+  }
+}
+
+images = document.querySelectorAll('.carousel-img');
+imageBtn = document.querySelector('.carousel-btn');
+asdf = new Carousel(images, imageBtn);
+//console.log(images);
